@@ -27,7 +27,7 @@ namespace Movtech_WorkFlow
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"INSERT INTO MvtCadEtapas(etapas, seqOrdem, leadTime) VALUES(@etapas, @seqOrdem, @leadTime");
+                    sql.AppendLine($"INSERT INTO MvtCadEtapas(etapas, seqOrdem, leadTime) VALUES(@etapas, @seqOrdem, @leadTime)");
                     command.CommandText = sql.ToString();
                     command.Parameters.Add(new SqlParameter("@etapas", etapas.Etapas));
                     command.Parameters.Add(new SqlParameter("@seqOrdem", etapas.SeqOrdem));
@@ -57,7 +57,7 @@ namespace Movtech_WorkFlow
                     command.CommandText = sql.ToString();
                     command.Parameters.AddWithValue("@codEtapas", etapas.CodEtapas);
                     command.Parameters.Add(new SqlParameter("@etapas", etapas.Etapas));
-                    command.Parameters.Add(new SqlParameter("seqOrdem", etapas.SeqOrdem));
+                    command.Parameters.Add(new SqlParameter("@seqOrdem", etapas.SeqOrdem));
                     command.Parameters.Add(new SqlParameter("@leadTime", etapas.LeadTime));
                     command.Transaction = t;
                     command.ExecuteNonQuery();
@@ -127,7 +127,7 @@ namespace Movtech_WorkFlow
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codEtapas, etapas, seqEtapas, leadTime FROM MvtCadEtapas ORDER BY codEtapas");
+                sql.AppendLine("SELECT codEtapas, etapas, seqOrdem, leadTime FROM MvtCadEtapas ORDER BY seqOrdem");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader()) 
                 { 
@@ -144,7 +144,7 @@ namespace Movtech_WorkFlow
         {
             string codEtapas = "";
             string etapas = "";
-            string seqEtapas = "";
+            string seqOrdem = "";
             string leadTime = "";
 
             if(DBNull.Value != dr["codEtapas"])
@@ -155,9 +155,9 @@ namespace Movtech_WorkFlow
             {
                 etapas = dr["etapas"] + "";
             }
-            if (DBNull.Value != dr["seqEtapas"])
+            if (DBNull.Value != dr["seqOrdem"])
             {
-                seqEtapas = dr["seqEtapas"] + "";
+                seqOrdem = dr["seqOrdem"] + "";
             }
             if (DBNull.Value != dr["leadTime"])
             {
@@ -167,7 +167,7 @@ namespace Movtech_WorkFlow
             {
                 CodEtapas = codEtapas,
                 Etapas = etapas,
-                SeqOrdem = seqEtapas,
+                SeqOrdem = seqOrdem,
                 LeadTime = leadTime
             };
         }

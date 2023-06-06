@@ -38,12 +38,12 @@
             this.txtSeqEtapas = new System.Windows.Forms.TextBox();
             this.txtLeadTime = new System.Windows.Forms.TextBox();
             this.dtgDadosEtapas = new System.Windows.Forms.DataGridView();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.colCodEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomeEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSeqEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDadosEtapas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,30 +136,7 @@
             this.dtgDadosEtapas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgDadosEtapas.Size = new System.Drawing.Size(564, 269);
             this.dtgDadosEtapas.TabIndex = 6;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(340, 122);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(116, 34);
-            this.btnSalvar.TabIndex = 4;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(464, 122);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(116, 34);
-            this.btnExcluir.TabIndex = 5;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.dtgDadosEtapas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDadosEtapas_CellDoubleClick);
             // 
             // colCodEtapa
             // 
@@ -193,8 +170,33 @@
             this.colLeadTime.Name = "colLeadTime";
             this.colLeadTime.ReadOnly = true;
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Location = new System.Drawing.Point(340, 122);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(116, 34);
+            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluir.Location = new System.Drawing.Point(464, 122);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(116, 34);
+            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // FormCadEtapas
             // 
+            this.AcceptButton = this.btnSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 445);

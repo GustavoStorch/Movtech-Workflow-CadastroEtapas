@@ -21,12 +21,65 @@ namespace Movtech_WorkFlow
 
         private void FormCadEtapas_Load(object sender, EventArgs e)
         {
+            InitializeTable();
             CarregaID();
+            btnExcluir.Enabled = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (SqlConnection connection = DaoConnection.GetConexao())
+                {
+                    EtapasDAO dao = new EtapasDAO(connection);
 
+                    bool verificaCampos = dao.VerificaCampos(new EtapasModel()
+                    {
+                        CodEtapas = txtCodEtapa.Text,
+                        Etapas = txtNomeEtapa.Text,
+                        SeqOrdem = txtSeqEtapas.Text,
+                        LeadTime = txtLeadTime.Text
+                    });
+
+                    if (verificaCampos)
+                    {
+                        int count = dao.VerificaRegistros(new EtapasModel()
+                        {
+                            CodEtapas = txtCodEtapa.Text
+                        });
+
+                        if(count > 0)
+                        {
+                            dao.Editar(new EtapasModel()
+                            {
+                                CodEtapas = txtCodEtapa.Text,
+                                Etapas = txtNomeEtapa.Text,
+                                SeqOrdem = txtSeqEtapas.Text,
+                                LeadTime = txtLeadTime.Text
+                            });
+                            MessageBox.Show("Etapa atualizada com sucesso!");
+                        } else
+                        {
+                            dao.Salvar(new EtapasModel()
+                            {
+                                Etapas = txtNomeEtapa.Text,
+                                SeqOrdem = txtSeqEtapas.Text,
+                                LeadTime = txtLeadTime.Text
+                            });
+                            MessageBox.Show("Etapa cadastrada com sucesso!");
+                        }
+                    }
+                }
+
+                InitializeTable();
+                LimparForm();
+                CarregaID();
+                btnExcluir.Enabled = false;
+            } catch(Exception ex)
+            {
+                MessageBox.Show($"Houve um problema ao salvar o usuário!\n{ex.Message}");
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -34,7 +87,34 @@ namespace Movtech_WorkFlow
             DialogResult conf = MessageBox.Show("Tem certeza que deseja excluir a Etapa?", "Ops, tem certeza?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             try
             {
+                if(conf == DialogResult.Yes) 
+                { 
+                    using (SqlConnection connection = DaoConnection.GetConexao())
+                    {
+                        EtapasDAO dao = new EtapasDAO(connection);
 
+                        bool verificaCampos = dao.VerificaCampos(new EtapasModel()
+                        {
+                            CodEtapas = txtCodEtapa.Text,
+                            Etapas = txtNomeEtapa.Text,
+                            SeqOrdem = txtSeqEtapas.Text,
+                            LeadTime = txtLeadTime.Text
+                        });
+
+                        if (verificaCampos )
+                        {
+                            dao.Excluir(new EtapasModel()
+                            {
+                                CodEtapas = txtCodEtapa.Text
+                            });
+                            MessageBox.Show("Etapa excluída com sucesso!");
+                        }
+                    }
+                    InitializeTable();
+                    LimparForm();
+                    CarregaID();
+                    btnExcluir.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -76,6 +156,25 @@ namespace Movtech_WorkFlow
                 int nextCod = Convert.ToInt32(command.ExecuteScalar());
 
                 txtCodEtapa.Text = nextCod.ToString();
+            }
+        }
+
+        private void dtgDadosEtapas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1 && e.ColumnIndex > -1)
+            {
+                txtCodEtapa.Text = dtgDadosEtapas.Rows[e.RowIndex].Cells[colCodEtapa.Index].Value + "";
+                txtNomeEtapa.Text = dtgDadosEtapas.Rows[e.RowIndex].Cells[colNomeEtapa.Index].Value + "";
+                txtSeqEtapas.Text = dtgDadosEtapas.Rows[e.RowIndex].Cells[colSeqEtapa.Index].Value + "";
+                txtLeadTime.Text = dtgDadosEtapas.Rows[e.RowIndex].Cells[colLeadTime.Index].Value + "";
+
+                if (string.IsNullOrEmpty(txtNomeEtapa.Text)){
+                    btnExcluir.Enabled = false;
+                    CarregaID();
+                } else
+                {
+                    btnExcluir.Enabled = true;
+                }
             }
         }
     }
