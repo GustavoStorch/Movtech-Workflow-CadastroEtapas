@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movtech-WorkFlow", "Movtech-WorkFlow\Movtech-WorkFlow.csproj", "{6B608043-7D65-44B2-A765-229B544FC365}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovtechWorkFlow", "Movtech-WorkFlow\MovtechWorkFlow.csproj", "{6B608043-7D65-44B2-A765-229B544FC365}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
