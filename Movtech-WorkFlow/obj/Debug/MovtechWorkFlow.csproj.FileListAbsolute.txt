@@ -1,0 +1,11 @@
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\bin\Debug\Movtech-WorkFlow.exe.config
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\bin\Debug\Movtech-WorkFlow.exe
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\bin\Debug\Movtech-WorkFlow.pdb
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\MovtechWorkFlow.csproj.AssemblyReference.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\MovtechWorkFlow.csproj.SuggestedBindingRedirects.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\Movtech_WorkFlow.FormCadEtapas.resources
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\Movtech_WorkFlow.Properties.Resources.resources
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\MovtechWorkFlow.csproj.GenerateResource.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\MovtechWorkFlow.csproj.CoreCompileInputs.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\Movtech-WorkFlow.exe
+C:\Users\estagiario1\Documents\Movtech\Projeto 2\Movtech-Workflow-CadastroEtapas\Movtech-WorkFlow\obj\Debug\Movtech-WorkFlow.pdb

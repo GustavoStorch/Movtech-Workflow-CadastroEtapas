@@ -215,6 +215,7 @@
             this.Name = "FormCadEtapas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Etapas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCadEtapas_FormClosing);
             this.Load += new System.EventHandler(this.FormCadEtapas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDadosEtapas)).EndInit();
             this.ResumeLayout(false);

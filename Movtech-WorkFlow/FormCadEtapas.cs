@@ -177,5 +177,18 @@ namespace Movtech_WorkFlow
                 }
             }
         }
+
+        private void FormCadEtapas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show(this, "Você tem certeza que deseja sair?", "Confirmação", MessageBoxButtons.YesNo);
+
+                if (result != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }
